@@ -1,3 +1,4 @@
-/Questionnaire/.idea/
+/.idea/
 /Questionnaire*iml
 /Questionnaire/target/
+.DS_Store
