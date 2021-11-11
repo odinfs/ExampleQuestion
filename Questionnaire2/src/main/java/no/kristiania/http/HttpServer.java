@@ -50,13 +50,13 @@ public class HttpServer {
         if (controllers.containsKey(fileTarget)) {
             HttpMessage response = controllers.get(fileTarget).handle(httpMessage);
             response.write(clientSocket);
-        } else if (fileTarget.equals("/hello")) {
-            String yourName = "world";
+        } else if (fileTarget.equals("/api/tasks")) {
+            String questionName = "world";
             if (query != null) {
                 Map<String, String> queryMap = HttpMessage.parseRequestParameters(query);
-                yourName = queryMap.get("lastName") + ", " + queryMap.get("firstName");
+                questionName = queryMap.get("questions") + ", " + queryMap.get("option");
             }
-            String responseText = "<p>Hello " + yourName + "</p>";
+            String responseText = "<p>Hello " + questionName + "</p>";
 
             writeOkResponse(clientSocket, responseText, "text/html");
         } else {

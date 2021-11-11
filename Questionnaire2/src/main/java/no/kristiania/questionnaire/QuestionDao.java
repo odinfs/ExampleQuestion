@@ -25,8 +25,8 @@ public class QuestionDao {
                     Statement.RETURN_GENERATED_KEYS
 
             )) {
-                statement.setString(1, person.getFirstName());
-                statement.setString(2, person.getLastName());
+                statement.setString(1, person.getQuestionTitle());
+                statement.setString(2, person.getQuestionText());
 
                 statement.executeUpdate();
 
@@ -70,8 +70,8 @@ public class QuestionDao {
     private Question readFromResultSet(ResultSet rs) throws SQLException {
         Question question = new Question();
         question.setId(rs.getLong("id"));
-        question.setFirstName(rs.getString("first_name"));
-        question.setLastName(rs.getString("last_name"));
+        question.setQuestionTitle(rs.getString("question_title"));
+        question.setQuestionText(rs.getString("question_text"));
         return question;
     }
 }

@@ -1,24 +1,43 @@
 package no.kristiania.questionnaire;
 
 public class Question {
-    private String firstName;
-    private String lastName;
+    private String questionTitle;
+    private String questionText;
+    private String questionLowLabel;
+    private String questionHighLabel;
     private long id;
 
-    public String getFirstName() {
-        return firstName;
+
+    public String getQuestionTitle() {
+        return questionTitle;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setQuestionTitle(String questionTitle) {
+        this.questionTitle = questionTitle;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getQuestionText() {
+        return questionText;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setQuestionText(String questionText) {
+        this.questionText = questionText;
+    }
+
+    public String getQuestionLowLabel() {
+        return questionLowLabel;
+    }
+
+    public void setQuestionLowLabel(String questionLowLabel) {
+        this.questionLowLabel = questionLowLabel;
+    }
+
+    public String getQuestionHighLabel() {
+        return questionHighLabel;
+    }
+
+    public void setQuestionHighLabel(String questionHighLabel) {
+        this.questionHighLabel = questionHighLabel;
     }
 
     public long getId() {
@@ -28,4 +47,5 @@ public class Question {
     public void setId(long id) {
         this.id = id;
     }
+
 }

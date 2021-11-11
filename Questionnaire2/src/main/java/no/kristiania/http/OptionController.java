@@ -16,8 +16,8 @@ public class OptionController implements HttpController {
         String responseText = "";
 
         int value = 1;
-        for (String role : optionDao.listAll()) {
-            responseText += "<option value=" + (value++) + ">" + role + "</option>";
+        for (String option : optionDao.listAll()) {
+            responseText += "<option value=" + (value++) + ">" + option + "</option>";
         }
         return new HttpMessage("HTTP/1.1 200 OK", responseText);
     }

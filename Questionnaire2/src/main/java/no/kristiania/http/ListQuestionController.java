@@ -17,7 +17,7 @@ public class ListQuestionController implements HttpController {
         String response = "";
 
         for (Question question : questionDao.listAll()) {
-            response += "<div>" + question.getLastName() + ", " + question.getFirstName() + "</div>";
+            response += "<div>" + question.getQuestionText() + ", " + question.getQuestionTitle() + "</div>";
         }
 
         return new HttpMessage("HTTP/1.1 200 OK", response);

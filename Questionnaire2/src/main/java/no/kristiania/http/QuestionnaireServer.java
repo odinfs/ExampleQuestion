@@ -23,22 +23,22 @@ public class QuestionnaireServer {
         HttpServer httpServer = new HttpServer(1962);
         httpServer.addController("/api/roleOptions", new OptionController(optionDao));
         httpServer.addController("/api/newPerson", new AddQuestionController(questionDao));
-        httpServer.addController("/api/people", new ListQuestionController(questionDao));
+        httpServer.addController("/api/newQuestion", new ListQuestionController(questionDao));
         logger.info("Starting http://localhost:{}/index.html", httpServer.getPort());
     }
 
     private static DataSource createDataSource() throws IOException {
         Properties properties = new Properties();
-        try (FileReader reader = new FileReader("pgr203.properties")) {
+        try (FileReader reader = new FileReader("exampleQuestion.properties")) {
             properties.load(reader);
         }
 
         PGSimpleDataSource dataSource = new PGSimpleDataSource();
         dataSource.setUrl(properties.getProperty(
                 "dataSource.url",
-                "jdbc:postgresql://localhost:5432/person_db"
+                "jdbc:postgresql://localhost:5432/question_db"
         ));
-        dataSource.setUser(properties.getProperty("dataSource.user", "person_dbuser"));
+        dataSource.setUser(properties.getProperty("dataSource.user", "question_dbuser"));
         dataSource.setPassword(properties.getProperty("dataSource.password"));
         Flyway.configure().dataSource(dataSource).load().migrate();
         return dataSource;

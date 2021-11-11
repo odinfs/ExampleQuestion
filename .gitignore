@@ -1,4 +1,5 @@
 /.idea/
 /Questionnaire*iml
-/Questionnaire/target/
 .DS_Store
+Questionnaire2/exampleQuestion.properties
+/Questionnaire2/target/
